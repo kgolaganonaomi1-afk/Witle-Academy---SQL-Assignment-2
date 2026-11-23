@@ -9,15 +9,15 @@ Nomsa Dlamini, the Financial Director, and Bongani Twala, the National Sales Man
 
 
 # The tasks 
-### Task 1 - Channel performance 
-### Task 2 - Where the profit actually comes from 
-### Task 3 - The collections problem 
-### Task 4 - The ten accounts that matter most 
-### Task 5 - A commercial gap 
-### Task 6 - Are the sales representatives hitting target? 
-### Every sales representative must appear, including any who generated no revenue. 
-### Task 7 - The shape of the year 
-### Task 8 - Why has the margin moved? 
+###### Task 1 - Channel performance 
+###### Task 2 - Where the profit actually comes from 
+###### Task 3 - The collections problem 
+###### Task 4 - The ten accounts that matter most 
+###### Task 5 - A commercial gap 
+###### Task 6 - Are the sales representatives hitting target? 
+###### Every sales representative must appear, including any who generated no revenue. 
+###### Task 7 - The shape of the year 
+###### Task 8 - Why has the margin moved? 
 
 ----
 
