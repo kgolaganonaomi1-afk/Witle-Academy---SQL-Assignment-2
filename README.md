@@ -1,55 +1,56 @@
-# Witle-Academy---SQL-Assignment-2
-Witle Academy SQL Assignment 2 
+## 🧠 Witle Academy SQL Assignment 2 
+
 
 ---
-## 🧠 Project Name: Imbewu Retail — Sales Analytics
+## 🗺️ Project overview:
 
----
-## 🗺️ Overview
-
-As a fictional newly hired Junior Data Analyst at Imbewu Retail, I was tasked by the Head of Sales to investigate an unexplained revenue decline in Western Cape despite stable foot traffic and deliver a Power BI dashboard with a written summary for an executive readout to the COO within three weeks
-
-<img width="953" height="571" alt="image" src="https://github.com/user-attachments/assets/58473f37-4e62-4ad7-a0d8-0ad7ab288687" />
-
-
-
-
-## 🎯 The problem
-
-Imbewu Retail is a fictional South African Retail Business with 45 Stores located across Gauteng, Western Cape, KwaZulu-Natal and Eastern Cape. The leadership has noticed a drop in Revenue in the Western Cape and has requested for an investigation to findout the reasons why this is happening and what should be done to fix it. To investigate this issue, I have drawn 3 Hypotheses that will help us determine or answer the following questions:
-
-1. Is this Revenue drop only happening in Western Cape or other Provinces are affected as well?
-2. Is there a specific business metric or patten that is causing this drop or its just happening on a random?
-3. Is this affecting all stores or a select few? if not all Stores are affected, please explain which ones and why?
-4. There was a Promotion ran in April 2025, the CFO would like to know if it worked or not
-5. What recommendations do you suggest to stop this bleeding?
-
-#### 📌 Hyphothesis Tested aimed at answering the question of what happened
-
-- Hypothesis 1: Total Revenue has not only dropped for Western Cape but has dropped for all Provinces.
-- Hypothesis 2: Western Cape had a drop in revenue because of drop in Transaction count. This means customers are not purchasing as much products in 2025 than in 2024.
-- Hypothesis 3: Loyalty Tier plays a role in Revenue drop by Province.
-
-Before I could start the analysis, I had to take into consideration the fact that 2025 dataset only covers Jan - June period while 2024 includes a full year. Therefore to be able to do accurate comparisons, I ensured that all 2024 data was filtered to the same Jan - June window. Without this adjustment, 2024 would appear to outperform 2025 by default simply because it contains more data leading to misleading results. Testing the above Hypotheses will help the company concentrate on high-revenue/profit product lines, optimize inventory management of stores and implement targeted, location-specific projects to increase revenue and profit.
+You have joined Sizwe Coffee as a junior data analyst. The financial year ended on 30 June 2025 and 
+the year-end review is in two weeks. 
+Nomsa Dlamini, the Financial Director, and Bongani Twala, the National Sales Manager, have each 
+sent you a list of things they want to understand before that meeting. 
 
 ----
 
-## 💻 Tools & skills used
+## 📦 The dataset
+
+The full dataset contains six CSV files. 
+
+| File | Rows | Description |
+| ----------------------- | ------- | ---------------------------------------------------- |
+| `customers.csv` | 1,400 | One row per customer - name, channel, segment, province, credit limit, assigned sales,representative  |
+| `products.csv` | 23 | One row per SKU - product line, pack size, list price, unit cost  |
+| `sales_orders.csv` | 45,144 |  One row per order - customer, order date, delivery date, channel, sales representative |
+| `sales_lines.csv` | 168,172 | One row per order line - SKU, units, unit price, discount, line revenue, cost of goods  |
+| `ar_ledger` | 48,144 |  One row per customer invoice - amount, due date, amount settled, settlement date |
+| `reps.csv` | 18 | Sales representatives - territory, monthly target |
+| `rep_visits.csv` | 9,400 | Visits made by sales representatives to customers, with the outcome |
+| `trade_promotions` | 640 | Promotional support given to a customer on a SKU |
+| `vendors.csv` | 74 | Suppliers - type, payment terms |
+
+How the tables connect 
+SQL Assignment   ·   Witle Plus    1 
+|• sales_orders.customer_id → customers.customer_id |
+|• sales_orders.order_id → sales_lines.order_id |
+|• sales_lines.sku → products.sku |
+|• sales_orders.rep_id and customers.rep_id → reps.rep_id |
+|• ar_ledger.customer_id → customers.customer_id |
+|• rep_visits.customer_id and trade_promotions.customer_id → customers.customer_id |
+Two things to notice before you start. Revenue lives on `sales_lines`, not on `sales_orders` - an order 
+has no value of its own, only the sum of its lines. And `channel` appears on both `customers` and 
+`sales_orders` - use whichever the question points at, and be ready to explain why they agree. 
+
+## 💻 How to run: Tools & skills used
 
 **Tools**
 - Databricks (SQL)
-- Power BI Desktop
 - DAX
-- Python for Data analytics
-- Microsoft Word
-- Git and GitHub
+- GitHub
 
 **Skills**
 - SQL — CTEs, window functions, ranking
 - DAX — time intelligence, ranking, customer cohort logic
 - Data validation and reconciliation
 - Data quality auditing and remediation
-- Dashboard design
 - Technical writing and documentation
 
 ## 📦 The dataset
@@ -65,13 +66,6 @@ all 45 stores nationwide. The data used is not a real-life data but it's been ge
 | `transaction_items.csv` | 48,641 | Line items inside each transaction |
 | `transactions.csv` | 9,164 | Every till receipt issued in the period |
 | `promotions.csv` | 4 | Historical and current marketing campaigns |
-
-----
-
-## 🗂️ Schema Diagram
-
-<img width="953" height="571" alt="image" src="https://github.com/user-attachments/assets/9a1222b5-a4ec-4bbd-ab8a-9e0ee3f599f6" />
-
 
 
 ----
