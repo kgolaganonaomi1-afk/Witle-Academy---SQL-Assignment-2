@@ -28,18 +28,18 @@ The full dataset contains six CSV files.
 | `vendors.csv` | 74 | Suppliers - type, payment terms |
 
 ## How the tables connect.
-| ----------------------- | ------- | ---------------------------------------------------- |
-|• sales_orders.customer_id → customers.customer_id |
 
-|• sales_orders.order_id → sales_lines.order_id |
+• sales_orders.customer_id → customers.customer_id
 
-|• sales_lines.sku → products.sku |
+• sales_orders.order_id → sales_lines.order_id
 
-|• sales_orders.rep_id and customers.rep_id → reps.rep_id |
+• sales_lines.sku → products.sku
 
-|• ar_ledger.customer_id → customers.customer_id |
+• sales_orders.rep_id and customers.rep_id → reps.rep_id 
 
-|• rep_visits.customer_id and trade_promotions.customer_id → customers.customer_id |
+• ar_ledger.customer_id → customers.customer_id
+
+• rep_visits.customer_id and trade_promotions.customer_id → customers.customer_id
 
 Two things to notice before you start. Revenue lives on `sales_lines`, not on `sales_orders` - an order 
 has no value of its own, only the sum of its lines. And `channel` appears on both `customers` and 
