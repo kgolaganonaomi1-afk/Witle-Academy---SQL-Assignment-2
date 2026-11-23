@@ -139,5 +139,5 @@ Gross margin fell from 34.7% in FY2024 to 33.0% in FY2025, while revenue grew ne
 ## ⭐ Let's Connect
 
 - 💼 LinkedIn: www.linkedin.com/in/amanda-sonjica-b7a169104
-- 📧 Email: mish.sonjica@gmail.com
+- 📧 Email: kgolaganonaomi1@gmail.com
 
