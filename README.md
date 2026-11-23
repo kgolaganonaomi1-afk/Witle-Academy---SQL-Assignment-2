@@ -1,11 +1,5 @@
 # Witle-Academy---SQL-Assignment-2
 Witle Academy SQL Assignment 2 
-[SQL](https://img.shields.io/badge/SQL-Basic-blue)
-![Excel](https://img.shields.io/badge/Excel-Intermediate-green)
-![Power BI](https://img.shields.io/badge/Power%20BI-Learning-yellow)
-![Data Analytics](https://img.shields.io/badge/Data%20Analytics-Portfolio-orange)
-
-Project Workflow: Data ➡️ Data Cleaning & Preparation using SQL ➡️ EDR Diagram ➡️ Findings ➡️ Power BI Dashboard
 
 ---
 ## 🧠 Project Name: Imbewu Retail — Sales Analytics
