@@ -55,8 +55,9 @@ Two things to notice before you start. Revenue lives on `sales_lines`, not on `s
 has no value of its own, only the sum of its lines. And `channel` appears on both `customers` and 
 `sales_orders` - use whichever the question points at, and be ready to explain why they agree. 
 
+----
 
-**Skills demonstrated**
+## Skills demonstrated
 - SQL — Joins, Aggregations, CASE expressions, CTEs, window functions, ranking
 - DAX — time intelligence, ranking, customer cohort logic
 - Data validation and reconciliation
@@ -64,9 +65,7 @@ has no value of its own, only the sum of its lines. And `channel` appears on bot
 - Technical writing and documentation
 
 
-## 💻 How to run: Tools & skills used
-
-**Tools**
+## 💻 How to run: Tools
 - Databricks (SQL)
 - DAX
 - GitHub
