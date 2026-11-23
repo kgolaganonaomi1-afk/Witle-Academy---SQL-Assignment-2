@@ -4,10 +4,20 @@
 ---
 ## 🗺️ Project overview:
 
-You have joined Sizwe Coffee as a junior data analyst. The financial year ended on 30 June 2025 and 
-the year-end review is in two weeks. 
-Nomsa Dlamini, the Financial Director, and Bongani Twala, the National Sales Manager, have each 
-sent you a list of things they want to understand before that meeting. 
+You have joined Sizwe Coffee as a junior data analyst. The financial year ended on 30 June 2025 and the year-end review is in two weeks. 
+Nomsa Dlamini, the Financial Director, and Bongani Twala, the National Sales Manager, have each sent you a list of things they want to understand before that meeting. 
+
+
+# The tasks 
+## Task 1 - Channel performance 
+## Task 2 - Where the profit actually comes from 
+## Task 3 - The collections problem 
+## Task 4 - The ten accounts that matter most 
+## Task 5 - A commercial gap 
+## Task 6 - Are the sales representatives hitting target? 
+## Every sales representative must appear, including any who generated no revenue. 
+## Task 7 - The shape of the year 
+## Task 8 - Why has the margin moved? 
 
 ----
 
@@ -45,112 +55,77 @@ Two things to notice before you start. Revenue lives on `sales_lines`, not on `s
 has no value of its own, only the sum of its lines. And `channel` appears on both `customers` and 
 `sales_orders` - use whichever the question points at, and be ready to explain why they agree. 
 
+
+**Skills demonstrated**
+- SQL — Joins, Aggregations, CASE expressions, CTEs, window functions, ranking
+- DAX — time intelligence, ranking, customer cohort logic
+- Data validation and reconciliation
+- Data quality auditing and remediation
+- Technical writing and documentation
+
+
 ## 💻 How to run: Tools & skills used
 
 **Tools**
 - Databricks (SQL)
 - DAX
 - GitHub
+  
+----
 
-**Skills**
-- SQL — CTEs, window functions, ranking
-- DAX — time intelligence, ranking, customer cohort logic
-- Data validation and reconciliation
-- Data quality auditing and remediation
-- Technical writing and documentation
+##### Task 1 - Channel performance 
+Nomsa needs the revenue split by channel for FY2024 and FY2025 side by side, with the growth rate between them. One row per channel, three figures on each. 
+FY2024 is orders placed on or before 30 June 2024. FY2025 is everything after that.
+##### Task 1 Answer - Channel performance 
 
-## 📦 The dataset
 
-The full dataset contains six CSV files. The six files contain tables covering 18 months of operations (January 2024 through June 2025) across
-all 45 stores nationwide. The data used is not a real-life data but it's been generated to look and behave like a real industry retail dataset, with the natural skew you'd expect.
 
-| File | Rows | Description |
-| ----------------------- | ------- | ---------------------------------------------------- |
-| `customers (1).csv` | 3,000 | Loyalty programme members and their tier (Bronze / Silver / Gold) |
-| `imbewu_products (1).csv` | 48 | Imbewu's product catalogue across 5 categories: Groceries, Household, Health & Beauty, Electronics, Apparel |
-| `stores.csv` | 45 | Stores across 4 South African provinces |
-| `transaction_items.csv` | 48,641 | Line items inside each transaction |
-| `transactions.csv` | 9,164 | Every till receipt issued in the period |
-| `promotions.csv` | 4 | Historical and current marketing campaigns |
+##### Task 2 - Where the profit actually comes from 
+For each product line, return revenue, cost of goods, gross profit and gross margin percentage. Sort by gross profit. In one or two sentences under your query: which line earns the most profit, and is it the same line that earns the highest margin? 
+##### Task 2 Answer - Where the profit actually comes from 
 
+
+
+##### Task 3 - The collections problem 
+Nomsa suspects the business is being paid more slowly than it used to be, and wants to know where the problem sits. For each channel, return the number of invoices, how many have been settled, how many are still open, the average number of days taken to settle, and the total value still outstanding. In two or three sentences: what does this tell you, and which channel would you investigate first? 
+##### Task 3 Answer - The collections problem 
+
+
+
+##### Task 4 - The ten accounts that matter most 
+Bongani wants a one-page list of the ten largest customers by FY2025 revenue, showing the trading name, segment, province, the sales representative who owns the account, and the revenue. Not every customer has a sales representative. Make sure your query does not silently drop anyone. 
+##### Task 4 Answer - The ten accounts that matter most 
+
+
+
+##### Task 5 - A commercial gap 
+Trade promotions are how Sizwe supports its wholesale accounts. Bongani thinks some sizeable customers have been getting nothing. Return the fifteen highest-revenue Wholesale customers who have never received a trade promotion, with their segment and province. One sentence: what would you recommend doing about the top three? 
+##### Task 5 Answer - A commercial gap 
+
+
+
+##### Task 6 - Are the sales representatives hitting target? 
+Each sales representative carries a monthly revenue target. Return every sales representative with their territory, their monthly target, their actual FY2025 monthly average, and that average as a percentage of target. Sort by percentage of target, best first. Every sales representative must appear, including any who generated no revenue. 
+##### Task 6 Answer - Are the sales representatives hitting target? 
+
+
+
+##### Task 7 - The shape of the year 
+Return monthly revenue across the full two years, with the percentage change on the previous month and a rolling three-month average alongside it. In two sentences: is there a seasonal pattern, and when is Sizwe's quietest month?
+##### Task 7 Answer - The shape of the year 
+
+
+
+##### Task 8 - Why has the margin moved? 
+Gross margin fell from 34.7% in FY2024 to 33.0% in FY2025, while revenue grew nearly 9%. Nobody can explain it. For each product line, return revenue and gross margin for each financial year, plus that line's share of total revenue in that year. Then answer, in a short paragraph: what caused the margin decline? Your answer must point at specific numbers in your result. 
+##### Task 8 - Why has the margin moved? 
+
+
+
+## 🔍 Key insights
 
 ----
 
-## ⚠️ Data quality issues
-
-----
-All the data cleaning and Data preparation was done using SQL. There were 5 checks done overall and they include the following:
-
-1. Checking for Duplicates in all tables: No duplicates were found in the data.
-2. Checking for Null values: There were a lot of Null values in 3 tables: **Customers**, **Stores** and **Transactions** table.
-
-<img width="422" height="142" alt="image" src="https://github.com/user-attachments/assets/b5413276-2df4-4362-b898-7aa8be61a411" />
-
-So the decision on what to do with the Null Values was based on whether the information on Null values will affect any findings or insights we're trying to determine and also if the information can be determined using information from other tables.
-- The missing Gender and Date of birth rows counted for 10% of the stores data and are original entered data when a customer signs up so there is no way to determine them from the rest of the data.
-- The missing Store Manager name row counts for 2.2% of the stores data and it is original entered data and can't be confirmed from rest of the data.
-- The missing Customer_id data from the transactions data counted for about 42.68% and although customer_id data can be found from the customers table, we don't have a way of tracing the transaction back to the customer.
-
-**Final decision**: Keep the Null values in the data instead of replacing the data or deleting it from the tables especially the transactions because they contribute to the total revenue.
-
-3. Check for Inconsistent casing: Western Cape and Gauteng provinces contain both upper case and lower cases. This was causing inaccurate results for provincial revenue analysis. So to fix the issue, standardized the cases using SQL. Data quality check SQL Code found in [`Data quality checks.md`]([sql/05_data_quality_checks.sql](https://github.com/mishsonjica-hash/Amanda-Sonjica/blob/main/Data%20quality%20checks.md))
-
-## 📊 Dashboards
-
-**Western Cape Analysis**:
-
-<img width="747" height="467" alt="WC Dashboard" src="https://github.com/user-attachments/assets/6f3fcb2a-004d-45bb-be9c-95facd588abc" />
-
-- 6 Store lost revenue and Transactions Count
-- S010 is the highest revenue generating store in 2025 and March and April are the only months where revenue increased.
-
-**Promo Impact Analysis**:
-
-<img width="748" height="470" alt="Promo dashboaed" src="https://github.com/user-attachments/assets/f7cadb80-e155-45f6-86e1-eed210e72478" />
-
-- "Buy 2 Get 1 Free on Iwisa" Promo run in April 2025 worked and revenue increased by R 7,045.44 and the average basket value rose by R 75.76. The promotion also increased Transaction count which means customers are spending more per visit during the promotional period.
-- This also increased the number of units sold to 1238 and Transaction count to 1086.
-
-**Products Analysis**:
-
-<img width="748" height="462" alt="image" src="https://github.com/user-attachments/assets/042af4e3-5bdf-4f4d-a491-a096f6021b79" />
-
-- Groceries is top category.
-- Product name: Ladies Underwear 5-pack is the highest contributer of revenue in 2024 and 2025.
-- In 2025, approximately 18k units sold.
-
-[`PowerBi Dashboard`](https://github.com/mishsonjica-hash/Amanda-Sonjica/blob/main/Final%20project%202.pbix)
-
----
-
-## 🔍 Key findings
-
-----
-
-1. **Revenue Decline Is Unique to Western Cape (Hypothesis 1 - Incorrect)**: The initial hypothesis that revenue dropped across all provinces was disproven. Revenue only declined in Western Cape by 5.79%, while all other provinces saw revenue increases year-over-year. This confirms that problem is within Western Cape and not shared across provinces.
-
-2. **Transaction Count Drop Is the Primary Driver of Revenue change (Hypothesis 2 - Correct)**: The Western Cape revenue decline is directly linked to a 6.29% drop in transaction count. Customers in 2025 are buying less products than in 2024. However, it was observed that this decline is concentrated in just 6 stores (S011, S003, S012, S007, S002, and S010), with Store S010 experiencing the steepest decline at 26.13% in transactions and 25.24% in revenue.
-
-3. **Customer Loyalty Tiers contributed in the Revenue Decline (Hypothesis 3 - Correct)**: All three loyalty tiers (Bronze, Silver, Gold) experienced transaction and revenue declines in Western Cape, making it the epicenter of customer churn. The Silver tier was hit hardest, losing 145 (14.46%) transactions and suffering a 10.46% revenue drop in Western Cape alone. Total transaction losses across all tiers in Western Cape amounted to 241 customers (90 Bronze + 145 Silver + 6 Gold). While Western Cape generates higher revenue and transactions counts, in comparison to other provinces, it had the highest revenue drop between 2024 and 2025
-
-4. **Average Transaction Value Shows Mixed Impact**: While several Western Cape stores (S002, S007, S011, S012, S009, S005) saw a decline in average transaction spend - suggesting customers are buying cheaper products or spending less per visit - this was not the case for all stores. For example, Store S003 experienced a 10.66% revenue decline despite a 12.25% increase in average transaction value. This shows that average transaction value alone does not fully influence the revenue change; the drop in transaction volume remains the dominant factor.
-
-5. **Promo Discount Analysis – "Buy 2 Get 1 Free on Iwisa" Was Effective**: The Power Promo run in April 2025 worked and revenue increased by R 7,045.44 and the average basket value rose by R 75.76. The promotion also increased Transaction count which means customers are spending more per visit during the promotional period.
-
-8. **Product Category Effect**: The Groceries category remains the top revenue contributor (R 495,829.88 in 2024 → R 512,113.53 in 2025), but the Apparel category showed the most revenue growth at 14.22% YOY. Within Western Cape specifically, the Beverages subcategory generates the highest revenue compared to other categories and subcategories. This highlights an opportunity to leverage high-growth categories like Apparel and strong performers like Beverages to drive recovery strategies.
-
-The findings are indepth explained in the [`Findings.md`](https://github.com/mishsonjica-hash/Amanda-Sonjica/blob/main/Findings.md)
-
----
-
-## 🔍 Recommendations and Conclusion
-
-----
-
-- Since the Iwisa promotion in April 2025 proved effective, I would recommend that you replicate or create more promotional campaign targeting the underperforming stores in Western Cape.
-- Since Transaction count directly affects the revenue growth, I would recommend that you create a monitoring system in Western Cape that targets transactions made per month to keep track of Revenue.
-- Since the issue in Western Cape only affects a select few stores, the team must drive store-level initiatives that are aimed at increasing revenue. This includes internal investigation of operational issues of the affected stores.
-- Given that the customer tier with reduced revenue amount is Silver tier, I would recommend creating more promos that include points in for Silver tier with the aim to win the customers lost back.
 
 ## 📬 References
 
